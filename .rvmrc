@@ -1,1 +1,1 @@
-rvm use ruby-1.9.3@live_ad_sync --create
+rvm use ruby-1.9.3@python --create
