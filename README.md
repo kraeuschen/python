@@ -15,7 +15,7 @@ Go to the /srv/project and switch to the virtual environment
 
     cd /srv/eight_queens/
     source bin/activate
-
+    export PYTHONPATH=/srv/eight_queens/
 
 Tests
 =====
