@@ -1,4 +1,3 @@
-
 def solve_queens():
     rows = 8
     columns = 8
@@ -11,9 +10,29 @@ def solve_queens():
 
     return solutions
 
-def no_conflict(row, colum, solutions):
+
+def no_conflict(row, column, solutions):
+    for solution in solutions:
+        # horizontal
+        if solution['row'] == row:
+            return False
+
+        # vertical
+        if solution['column'] == column:
+            return False
+
+        # diagonal
+        if (solution['column'] + 1) == column and (solution['row'] + 1 == row):
+            #print 'next'
+            return False
+
+        if (solution['column'] - 1) == column  and (solution['row'] + 1 == row):
+            #print 'prev'
+            return False
+
     return True
 
 
-for solution in solve_queens():
-    print solution
+if __name__ == '__main__':
+    for solution in solve_queens():
+        print solution

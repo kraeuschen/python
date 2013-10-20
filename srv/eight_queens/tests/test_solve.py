@@ -6,17 +6,22 @@ from solve import solve_queens, no_conflict
 
 
 class TestSolve(unittest2.TestCase):
-    def test_solve_queens(self):
-        expected = []
-
-        for row in range(8):
-            for column in range(8):
-                expected.append({'row': row, 'column': column})
-
-        self.assertEqual(solve_queens(), expected)
-
     def test_no_conflict(self):
-        self.assertTrue(no_conflict(1,2,[]))
+        #self.assertTrue(no_conflict(1,2,[]))
+
+        solutions = []
+        solutions.append({'row': 0, 'column': 0});
+
+        #self.assertFalse(no_conflict(0,4, solutions))
+        #self.assertTrue(no_conflict(1,3, solutions))
+
+        solutions = []
+        solutions.append({'column': 0, 'row': 0})
+        solutions.append({'column': 2, 'row': 1})
+        solutions.append({'column': 4, 'row': 2})
+        solutions.append({'column': 6, 'row': 3})
+
+        self.assertTrue(no_conflict(4, 1, solutions))
 
 
 if __name__ == '__main__':
