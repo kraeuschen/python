@@ -13,8 +13,8 @@ def solve_queens():
                 if not has_failed(row, column, failes) and no_conflict(row, column, solutions):
                     solutions.append({'row': row, 'column': column})
 
-
         if len(solutions) < rows:
+            print solutions
             solutions = []
             failes.append({'row': start_row, 'column': start_column})
             start_row += 1
@@ -38,6 +38,7 @@ def has_failed(row, column, failes):
 
 def no_conflict(row, column, solutions):
     for solution in solutions:
+
         # horizontal
         if solution['row'] == row:
             return False
@@ -46,14 +47,36 @@ def no_conflict(row, column, solutions):
         if solution['column'] == column:
             return False
 
-        # diagonal
-        if (solution['column'] + 1) == column and (solution['row'] + 1 == row):
-            #print 'next'
-            return False
+        right = solution['column']
+        left = solution['column']
+        down = solution['row']
+        up = solution['row']
+        offset = 1
 
-        if (solution['column'] - 1) == column and (solution['row'] + 1 == row):
-            #print 'prev'
-            return False
+        # diagonal
+        while offset < 8:
+            right += 1
+            left -= 1
+            down += 1
+            up -= 1
+
+            if (right == column and down == row):
+                #print 'next'
+                return False
+
+            if (left == column and down == row):
+                #print 'prev'
+                return False
+
+            if (right == column and up == row):
+                #print 'next'
+                return False
+
+            if (left == column and up == row):
+                #print 'prev'
+                return False
+
+            offset += 1
 
     return True
 
