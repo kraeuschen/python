@@ -3,26 +3,26 @@ def solve_queens():
     solutions = []
 
     for row in range(board):
-        solutions = get_solution(row, board, solutions)
+        solutions = get_solutions(row, board, solutions)
 
     return solutions
 
-def get_solution(row, columns, solutions):
+def get_solutions(row, columns, solutions):
     result = []
 
     for column in range(columns):
         if not len(solutions):
             result.append([(row, column)])
         else:
-            for solution in solutions:
-                if no_conflict(row, column, solution):
-                    result.append(solution + [(row, column)])
+            for queens in solutions:
+                if no_conflict(row, column, queens):
+                    result.append(queens + [(row, column)])
 
     return result
 
-def no_conflict(row, column, solutions):
-    for solution in solutions:
-        r,c = solution
+def no_conflict(row, column, queens):
+    for tupel in queens:
+        r,c = tupel
         if r == row:
             return False
 
@@ -32,7 +32,7 @@ def no_conflict(row, column, solutions):
         if (column - c) == (row - r):
             return False
 
-        if (column -c) == -(row -r):
+        if (column - c) == -(row -r):
             return False
 
     return True
