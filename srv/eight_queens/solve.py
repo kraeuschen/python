@@ -7,6 +7,7 @@ def solve_queens():
 
     return solutions
 
+
 def get_solutions(row, columns, solutions):
     result = []
 
@@ -20,9 +21,10 @@ def get_solutions(row, columns, solutions):
 
     return result
 
+
 def no_conflict(row, column, queens):
     for tupel in queens:
-        r,c = tupel
+        r, c = tupel
         if r == row:
             return False
 
@@ -32,7 +34,7 @@ def no_conflict(row, column, queens):
         if (column - c) == (row - r):
             return False
 
-        if (column - c) == -(row -r):
+        if (column - c) == -(row - r):
             return False
 
     return True

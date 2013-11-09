@@ -7,14 +7,14 @@ from solve import no_conflict
 
 class TestSolve(unittest2.TestCase):
     def test_no_conflict(self):
-        self.assertTrue(no_conflict(1,2,[]))
+        self.assertTrue(no_conflict(1, 2, []))
 
         solutions = [(0, 0)];
 
-        self.assertFalse(no_conflict(0,4, solutions))
-        self.assertTrue(no_conflict(1,3, solutions))
+        self.assertFalse(no_conflict(0, 4, solutions))
+        self.assertTrue(no_conflict(1, 3, solutions))
 
-        solutions = [(0,0),(1,2),(2,4),(3,6)]
+        solutions = [(0, 0), (1, 2), (2, 4), (3, 6)]
 
         self.assertTrue(no_conflict(4, 1, solutions))
 
