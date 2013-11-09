@@ -2,7 +2,7 @@ __author__ = 'jankrause'
 
 import unittest2
 
-from solve import solve_queens, no_conflict
+from solve import no_conflict
 
 
 class TestSolve(unittest2.TestCase):
